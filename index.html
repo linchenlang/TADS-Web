@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>TADS · 列车时刻查询</title>
+    <title>TADS Web · 列车时刻查询</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
@@ -177,7 +177,7 @@
 <body>
 <div id="app">
     <div class="header">
-        <div class="logo"><span>TADS</span><small></small></div>
+        <div class="logo"><span>TADS</span><small>Web版</small></div>
         <div class="mode-tabs">
             <button class="mode-tab active" data-mode="train">车次</button>
             <button class="mode-tab" data-mode="station">车站</button>
@@ -552,17 +552,56 @@ document.addEventListener('DOMContentLoaded', function() {
         container.innerHTML = html || '<div style="text-align:center;padding:12px;color:#8a96a8;font-size:13px;">暂无站点信息</div>';
     }
 
-    // ====== 车站查询 ======
+    // ========== 车站查询 ==========
     async function searchStation(stationName) {
         showLoading();
+
         const telecodeResp = await API.getTelecode(stationName);
         if (telecodeResp.error) throw new Error(telecodeResp.error);
+
         const stationData = await API.getStationByTelecode(telecodeResp.telecode);
         if (!stationData.data) throw new Error('未找到车站信息');
+
         const stationInfo = stationData.data;
-        const trains = stationData.trains || [];
-        if (trains.length === 0) { resultsDiv.innerHTML = `<div class="alert alert-info">该站暂无列车停靠</div>`; return; }
-        let html = `<div class="card"><div class="card-body"><div class="card-title" style="font-size:20px;font-weight:700;color:#1a2332;">${stationInfo.name}</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;margin-top:8px;font-size:13px;"><div><span style="color:#8a96a8;">电报码</span><br><span style="font-weight:500;">${stationInfo.telecode||'--'}</span></div><div><span style="color:#8a96a8;">拼音</span><br><span style="font-weight:500;">${stationInfo.pinyin||'--'}</span></div><div><span style="color:#8a96a8;">拼音三码</span><br><span style="font-weight:500;">${stationInfo.pinyinTriple||'--'}</span></div><div><span style="color:#8a96a8;">路局</span><br><span style="font-weight:500;">${stationInfo.bureau||'--'}</span></div><div><span style="color:#8a96a8;">车务段</span><br><span style="font-weight:500;">${stationInfo.belong||'--'}</span></div><div><span style="color:#8a96a8;">省份</span><br><span style="font-weight:500;">${stationInfo.province||'--'}</span></div><div><span style="color:#8a96a8;">城市</span><br><span style="font-weight:500;">${stationInfo.city||'--'}</span></div><div><span style="color:#8a96a8;">等级</span><br><span style="font-weight:500;">${stationInfo.level||'--'}</span></div></div><div style="margin-top:10px;padding-top:10px;border-top:1px solid #eef2f7;"><div style="font-size:13px;color:#5f6b7a;">本站车次：<span style="font-weight:600;color:#1a2332;">${trains.length}</span> 趟</div></div></div></div><div style="font-size:14px;font-weight:600;color:#1a2332;padding:4px 4px 8px 4px;">经过车次 (${trains.length})</div>`;
+        let trains = stationData.trains || [];
+
+        if (trains.length === 0) {
+            resultsDiv.innerHTML = `<div class="alert alert-info">该站暂无列车停靠</div>`;
+            return;
+        }
+
+        // ===== 按时间顺序排列车次 =====
+        trains.sort((a, b) => {
+            let timeA = a.depart || a.arrive || '23:59';
+            let timeB = b.depart || b.arrive || '23:59';
+            if (timeA === '--:--' || timeA.length < 4) timeA = '23:59';
+            if (timeB === '--:--' || timeB.length < 4) timeB = '23:59';
+            return timeA.localeCompare(timeB);
+        });
+
+        // 构建详细信息
+        let html = `
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title" style="font-size:20px;font-weight:700;color:#1a2332;">${stationInfo.name}</div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;margin-top:8px;font-size:13px;">
+                        <div><span style="color:#8a96a8;">电报码</span><br><span style="font-weight:500;">${stationInfo.telecode || '--'}</span></div>
+                        <div><span style="color:#8a96a8;">拼音</span><br><span style="font-weight:500;">${stationInfo.pinyin || '--'}</span></div>
+                        <div><span style="color:#8a96a8;">拼音三码</span><br><span style="font-weight:500;">${stationInfo.pinyinTriple || '--'}</span></div>
+                        <div><span style="color:#8a96a8;">路局</span><br><span style="font-weight:500;">${stationInfo.bureau || '--'}</span></div>
+                        <div><span style="color:#8a96a8;">车务段</span><br><span style="font-weight:500;">${stationInfo.belong || '--'}</span></div>
+                        <div><span style="color:#8a96a8;">省份</span><br><span style="font-weight:500;">${stationInfo.province || '--'}</span></div>
+                        <div><span style="color:#8a96a8;">城市</span><br><span style="font-weight:500;">${stationInfo.city || '--'}</span></div>
+                        <div><span style="color:#8a96a8;">等级</span><br><span style="font-weight:500;">${stationInfo.level || '--'}</span></div>
+                    </div>
+                </div>
+            </div>
+            <div style="font-size:14px;font-weight:600;color:#1a2332;padding:4px 4px 8px 4px;">
+                经过车次 (${trains.length})
+                <span style="font-size:12px;font-weight:400;color:#5f6b7a;">按发车时间排序</span>
+            </div>
+        `;
+
         trains.forEach(train => {
             const num = train.number || '';
             const numFull = train.numberFull || [num];
@@ -574,17 +613,33 @@ document.addEventListener('DOMContentLoaded', function() {
             const depart = train.depart || '--';
             const dayOffset = train.dayOffset || 0;
             const dayLabel = dayOffset > 0 ? `+${dayOffset}` : '';
-            html += `<div class="card train-list-item" onclick="window.openTrain('${num}')"><div class="d-flex align-items-center justify-content-between"><span class="number">${display}</span><span class="type">${type}</span></div><div class="route">${fromStation} <span class="arrow">→</span> ${toStation}</div><div class="time-info">${depart} 发 · ${arrive} 到 ${dayLabel}</div></div>`;
+
+            html += `
+                <div class="card train-list-item" onclick="window.openTrain('${num}')">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span class="number">${display}</span>
+                        <span class="type">${type}</span>
+                    </div>
+                    <div class="route">
+                        ${fromStation} <span class="arrow">→</span> ${toStation}
+                    </div>
+                    <div class="time-info">${depart} 发 · ${arrive} 到 ${dayLabel}</div>
+                </div>
+            `;
         });
+
         resultsDiv.innerHTML = html;
-        resultsDiv.classList.remove('sts-mode');
+
         window.openTrain = function(trainNum) {
             modeBtns.forEach(b => b.classList.remove('active'));
             document.querySelector('[data-mode="train"]').classList.add('active');
             currentMode = 'train';
             renderSearchForm('train');
             const input = document.getElementById('trainInput');
-            if (input) { input.value = trainNum; setTimeout(() => doSearch('train'), 100); }
+            if (input) {
+                input.value = trainNum;
+                setTimeout(() => doSearch('train'), 100);
+            }
         };
     }
 
