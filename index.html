@@ -71,7 +71,7 @@
         .train-feature-tag{background:#eef3fc;color:#1a73e8;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:500;display:inline-flex;align-items:center;gap:4px}
         .train-feature-tag i{font-size:12px}
 
-        .coach-grid{display:flex;flex-direction:column;gap:10px;width:100%;}
+        .coach-grid{display:flex;flex-direction:column;gap:10px;width:100%}
         .coach-item{border:1px solid #eef2f7;border-radius:10px;overflow:hidden;background:#fff;width:100%}
         .coach-item img{width:100%;height:200px;object-fit:cover;cursor:pointer;background:#f8faff}
         .coach-item img:active{opacity:0.8}
@@ -84,8 +84,8 @@
         .screen-item .train{font-weight:700;color:#1a73e8}
         .screen-item .port{font-size:11px;color:#5f6b7a}
         .screen-item span{word-break:break-word;white-space:normal}
-        .sts-mode .screen-header { grid-template-columns: 120px 160px 70px 160px 70px 80px; }
-        .sts-mode .screen-item { grid-template-columns: 120px 160px 70px 160px 70px 80px; }
+        .sts-mode .screen-header{grid-template-columns:120px 160px 70px 160px 70px 80px}
+        .sts-mode .screen-item{grid-template-columns:120px 160px 70px 160px 70px 80px}
 
         .status-badge{font-size:13px;padding:2px 10px;border-radius:20px;white-space:nowrap;font-weight:500}
         .status-ontime{background:#d4edda;color:#155724}
@@ -131,39 +131,37 @@
         .station-input-clickable:hover{background:#eef3fc!important;border-color:#1a73e8!important}
         .station-input-clickable::placeholder{color:#8a96a8}
 
+        /* ===== 电脑端适配：收窄宽度，居中显示，保持2列 ===== */
         @media(min-width:768px){
-            body{padding:20px 30px 60px 30px;max-width:900px;margin:0 auto}
-            .search-row{grid-template-columns:1fr 1fr 1fr}
-            .train-info-card .info-grid{grid-template-columns:1fr 1fr 1fr}
+            body{max-width:700px;margin:0 auto;padding:20px 20px 60px 20px}
+            .search-row{grid-template-columns:1fr 1fr}
             .screen-item span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-            .exit-card .exit-grid{grid-template-columns:1fr 1fr 1fr 1fr}
+            .exit-card .exit-grid{grid-template-columns:1fr 1fr 1fr}
             .coach-item img{height:200px}
-            .param-card .param-grid{grid-template-columns:1fr 1fr 1fr 1fr}
+            .param-card .param-grid{grid-template-columns:1fr 1fr}
         }
         @media(min-width:1024px){
-            body{max-width:1100px;padding:24px 40px 60px 40px}
-            .header{margin-bottom:16px}
-            .logo{font-size:24px}
-            .mode-tab{padding:6px 18px;font-size:14px}
-            .search-box{padding:20px 24px;border-radius:16px}
-            .search-box input,.search-box select{padding:12px 16px;font-size:16px;border-radius:12px}
-            .btn-query{padding:14px 20px;font-size:17px;border-radius:40px}
-            .train-info-card .train-number{font-size:28px}
-            .train-info-card .info-grid{grid-template-columns:1fr 1fr 1fr 1fr;font-size:14px}
-            .timetable-table{font-size:14px;min-width:500px}
+            body{max-width:720px;padding:30px 30px 60px 30px}
+            .logo{font-size:22px}
+            .mode-tab{padding:6px 16px;font-size:13px}
+            .search-box{padding:18px 22px}
+            .search-box input,.search-box select{padding:12px 16px;font-size:15px}
+            .btn-query{padding:14px 20px;font-size:16px}
+            .train-info-card .train-number{font-size:24px}
+            .train-info-card .info-grid{grid-template-columns:1fr 1fr;font-size:14px}
+            .timetable-table{font-size:14px;min-width:400px}
             .timetable-table th,.timetable-table td{padding:10px 8px}
-            .timetable-table .col-time{width:80px}
-            .timetable-table .col-status{width:90px}
             .coach-item img{height:220px}
             .train-list-item{padding:12px 18px}
-            .train-list-item .number{font-size:19px}
+            .train-list-item .number{font-size:18px}
             .exit-card{padding:12px 18px}
-            .exit-card .exit-grid{grid-template-columns:1fr 1fr 1fr 1fr 1fr;font-size:13px}
-            .param-card .param-grid{grid-template-columns:1fr 1fr 1fr 1fr 1fr}
+            .exit-card .exit-grid{grid-template-columns:1fr 1fr 1fr;font-size:13px}
+            .param-card .param-grid{grid-template-columns:1fr 1fr}
+            .train-feature-tag{font-size:12px;padding:3px 12px}
         }
         @media(min-width:1440px){
-            body{max-width:1300px;padding:30px 60px 60px 60px}
-            .coach-item img{height:260px}
+            body{max-width:750px;padding:40px 40px 60px 40px}
+            .coach-item img{height:240px}
         }
 
         .modal-fullscreen .modal-content{background:#000!important}
@@ -728,7 +726,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 else { baseText = '--'; delayClass = 'delay-unknown'; }
 
                 // ===== 核心正晚点逻辑：用到达时间判断是否已到站 =====
-                // 始发站用发车时间，其他站用到达时间
                 let checkTime = arrive;
                 if (isFirst && (arrive === '--' || arrive === '始发')) {
                     checkTime = depart;
