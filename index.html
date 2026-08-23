@@ -14,8 +14,8 @@
         .logo{font-size:20px;font-weight:700;color:#1a73e8;display:flex;align-items:center;}
         .logo small{font-size:13px;font-weight:400;color:#5f6b7a;margin-left:4px}
         .mode-tabs{display:flex;gap:3px;background:#e9edf4;border-radius:30px;padding:3px;position:relative}
-        .mode-tab{border:none;background:transparent;padding:5px 12px;border-radius:30px;font-size:12px;font-weight:500;color:#5f6b7a;cursor:pointer;transition:0.2s;white-space:nowrap;position:relative;z-index:2}
-        .mode-tab.active{background:#fff;color:#1a73e8;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+        .mode-tab{border:none;background:transparent;padding:5px 12px;border-radius:30px;font-size:12px;font-weight:500;color:#5f6b7a;cursor:pointer;transition:0.2s;white-space:nowrap;position:relative;z-index:2;flex:1;text-align:center;}
+        .mode-tab.active{background:#fff !important;color:#1a73e8 !important;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
         .mode-tab:active{transform:scale(0.95)}
         .search-box{background:#fff;border-radius:14px;padding:14px 16px;box-shadow:0 2px 10px rgba(0,0,0,0.04);margin-bottom:14px}
         .search-box .field-group{margin-bottom:8px}
@@ -78,15 +78,15 @@
         .coach-item img:active{opacity:0.8}
         .coach-item .name{padding:6px 12px;font-size:13px;font-weight:500;text-align:center;color:#1a2332;background:#f8faff;border-top:1px solid #eef2f7}
 
-        .screen-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:0 16px}
+        .screen-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0;padding:0}
         .screen-header{display:grid;grid-template-columns:100px 160px 70px 160px 70px 80px;gap:4px;padding:8px 10px;background:#f8faff;font-weight:600;font-size:11px;color:#5f6b7a;border-bottom:2px solid #eef2f7;min-width:640px}
         .screen-item{display:grid;grid-template-columns:100px 160px 70px 160px 70px 80px;gap:4px;align-items:center;padding:8px 12px;border-bottom:1px solid #f0f0f0;cursor:pointer;font-size:13px;min-width:640px}
         .screen-item:active{background:#f0f4f9}
         .screen-item .train{font-weight:700;color:#1a73e8}
         .screen-item .port{font-size:11px;color:#5f6b7a}
         .screen-item span{word-break:break-word;white-space:normal}
-        .sts-mode .screen-header{grid-template-columns:120px 160px 70px 160px 70px 80px}
-        .sts-mode .screen-item{grid-template-columns:120px 160px 70px 160px 70px 80px}
+        .sts-mode .screen-header{grid-template-columns:100px 1fr 70px 1fr 70px 80px;min-width:auto}
+        .sts-mode .screen-item{grid-template-columns:100px 1fr 70px 1fr 70px 80px;min-width:auto}
 
         .status-badge{font-size:13px;padding:2px 10px;border-radius:20px;white-space:nowrap;font-weight:500}
         .status-ontime{background:#d4edda;color:#155724}
@@ -105,7 +105,7 @@
         .train-list-item .route{font-size:13px;color:#1a2332;margin-top:2px}
         .train-list-item .route .arrow{color:#8a96a8;margin:0 4px}
         .train-list-item .time-info{font-size:12px;color:#5f6b7a;margin-top:2px}
-        .footer{margin-top:20px;text-align:center;color:#8a96a8;font-size:12px;border-top:1px solid #eef2f7;padding-top:14px}
+        .footer{margin-top:20px;text-align:center;color:#8a96a8;font-size:12px;border-top:1px solid #dce1ea;padding-top:14px}
         .footer .fw-semibold{font-weight:600}
         .loading{text-align:center;padding:40px 20px;color:#5f6b7a}
         .loading .spinner{display:inline-block;width:30px;height:30px;border:3px solid #eef2f7;border-top-color:#1a73e8;border-radius:50%;animation:spin 0.8s linear infinite}
@@ -172,8 +172,9 @@
         body.dark-mode{background:#1a1f2b;color:#e8edf5}
         body.dark-mode .card{background:#262d3d;border-color:#3a4458}
         body.dark-mode .search-box{background:#262d3d}
+        body.dark-mode .search-box input:-webkit-autofill{background:#1a1f2b !important}
         body.dark-mode .mode-tab{color:#aab4c8}
-        body.dark-mode .mode-tab.active{background:#3a4458;color:#7eb8ff}
+        body.dark-mode .mode-tab.active{background:#3a4458 !important;color:#7eb8ff !important;box-shadow:0 2px 8px rgba(0,0,0,0.2) !important}
         body.dark-mode .mode-tab{background:transparent}
         body.dark-mode .btn-query{background:#2b6fc4}
         body.dark-mode .train-info-card .train-number{color:#7eb8ff}
@@ -211,6 +212,75 @@
         body.dark-mode .delay-late{background:#3d1f2a;color:#f5b8c4}
         body.dark-mode .delay-early{background:#1a2a4a;color:#8bb8e8}
         body.dark-mode .delay-unknown{background:#2a2a3a;color:#b0b8c8}
+        body.dark-mode .card-title,
+        body.dark-mode .train-info-card .info-grid .value,
+        body.dark-mode .card-body > div[style*="font-weight:600"],
+        body.dark-mode .card-body > div[style*="font-weight: 600"],
+        body.dark-mode .card-body .card-title,
+        body.dark-mode .exit-card .station-name,
+        body.dark-mode .exit-card .exit-grid .value,
+        body.dark-mode .param-card .param-grid .value,
+        body.dark-mode .train-list-item .route,
+        body.dark-mode .train-list-item .time-info,
+        body.dark-mode .station-select-box .list .item .name,
+        body.dark-mode .station-select-box .header span,
+        body.dark-mode .screen-item span:not(.train):not(.port),
+        body.dark-mode .timetable-table td,
+        body.dark-mode .coach-item .name,
+        body.dark-mode .train-feature-tag,
+        body.dark-mode #themeToggle{background:#3a4458 !important;color:#e8edf5 !important}
+        body.dark-mode #themeToggle{color:#e8edf5 !important}
+        body.dark-mode .custom-select-option {
+            color:#e8edf5 !important;
+        }
+        body.dark-mode .train-info-card .info-grid .label,
+        body.dark-mode .exit-card .exit-grid .label,
+        body.dark-mode .param-card .param-grid .label,
+        body.dark-mode .timetable-table th,
+        body.dark-mode .screen-header,
+        body.dark-mode .screen-item .port,
+        body.dark-mode .search-box label,
+        body.dark-mode .footer,
+        body.dark-mode .empty-state,
+        body.dark-mode .loading {
+            color:#aab4c8 !important;
+        }
+        body.dark-mode .train-list-item .number,
+        body.dark-mode .screen-item .train {
+            color:#7eb8ff !important;
+        }
+        body.dark-mode .train-list-item .type {
+            background:#2a3a5a !important;
+            color:#7eb8ff !important;
+        }
+        body.dark-mode .timetable-table .col-day {
+            color:#f5a623 !important;
+        }
+        body.dark-mode .timetable-table .col-train {
+            color:#7eb8ff !important;
+        }
+        body.dark-mode .train-info-card .train-type {
+            background:#2a3a5a !important;
+            color:#7eb8ff !important;
+        }
+        body.dark-mode .train-info-card .train-number {
+            color:#7eb8ff !important;
+        }
+        body.dark-mode .station-select-box .list .item {
+            border-bottom-color:#2a3245 !important;
+        }
+        body.dark-mode .station-select-box .list .empty {
+            color:#8a96a8 !important;
+        }
+        body.dark-mode .screen-item {
+            border-bottom-color:#2a3245 !important;
+        }
+        body.dark-mode .train-list-item {
+            border-bottom-color:#2a3245 !important;
+        }
+        body.dark-mode .custom-select-option:hover {
+            background:#2a3245 !important;
+        }
         body.dark-mode .search-box input,
         body.dark-mode .search-box select {
             background:#fff !important;
@@ -221,6 +291,9 @@
         body.dark-mode .search-box select:focus {
             border-color:#1a73e8 !important;
             box-shadow:0 0 0 3px rgba(26,115,232,0.1) !important;
+        }
+        body.dark-mode .station-train-count-title {
+            color:#e8edf5 !important;
         }
         /* 让所有控件在深色模式下变深色 */
         body.dark-mode .search-box input,
@@ -318,27 +391,89 @@
             background:#2a3a5a !important;
             color:#7eb8ff !important;
         }
+        /* 修复深色模式下输入框自动填充变白的问题 */
+        body.dark-mode .search-box input:-webkit-autofill,
+        body.dark-mode .search-box input:-webkit-autofill:hover,
+        body.dark-mode .search-box input:-webkit-autofill:focus,
+        body.dark-mode .search-box input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 1000px #1a1f2b inset !important;
+            -webkit-text-fill-color: #e8edf5 !important;
+            background-color: #1a1f2b !important;
+            background: #1a1f2b !important;
+            border-color: #3a4458 !important;
+        }
+        body.dark-mode .search-box input {
+            background: #1a1f2b !important;
+            color: #e8edf5 !important;
+            border-color: #3a4458 !important;
+        }
+        body.dark-mode .search-box input:focus {
+            border-color: #2b6fc4 !important;
+            box-shadow: 0 0 0 3px rgba(43,111,196,0.2) !important;
+            background: #1a1f2b !important;
+            color: #e8edf5 !important;
+        }
         .custom-select-option.selected {
             background:#eef3fc !important;
             color:#1a73e8 !important;
+        }
+        body.dark-mode .mode-tabs{background:#2a3245 !important}
+        body.dark-mode #themeToggle{color:#e8edf5 !important}
+        #themeToggle{background:#e9edf4 !important}
+        /* 隐藏所有滚动条 */
+        ::-webkit-scrollbar{display:none;width:0;height:0}
+        *{scrollbar-width:none;-ms-overflow-style:none}
+        @keyframes themeRotate {
+            0%{transform:rotate(0deg)}
+            100%{transform:rotate(360deg)}
+        }
+        #themeIcon {
+            transition: transform 0.5s ease;
+        }
+        #themeIcon.rotating {
+            animation: themeRotate 0.6s ease;
+        }
+        #themeIconMoon, #themeIconSun {
+            transition: transform 0.5s ease, opacity 0.3s ease;
+            position: absolute;
+        }
+        #themeToggle {
+            position: relative;
         }
     </style>
 </head>
 <body>
 <div id="app">
-    <div class="header">
-        <div class="logo">
-            <img src="image/logo.ico" alt="TADS Logo" style="height:20px;width:20px;margin-right:6px;">
-            <span>TADS</span><small></small></div>
-            <div style="display:flex;align-items:center;gap:8px;">
-                <div class="mode-tabs">
-                    <button class="mode-tab active" data-mode="train">车次</button>
-                    <button class="mode-tab" data-mode="station">车站</button>
-                    <button class="mode-tab" data-mode="sts">站到站</button>
-                    <button class="mode-tab" data-mode="screen">大屏</button>
-                </div>
-                <button id="themeToggle" style="background:#e9edf4;border:none;border-radius:30px;font-size:18px;padding:5px 10px;cursor:pointer;transition:0.2s;flex-shrink:0;">🌓</button>
-            </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding:0 6px;">
+        <div class="logo" style="font-size:24px;font-weight:700;color:#1a73e8;display:flex;align-items:center;">
+            <img src="image/logo.ico" alt="TADS Logo" style="height:22px;width:22px;margin-right:8px;">
+            <span>TADS</span>
+        </div>
+        <button id="themeToggle" style="background:#e9edf4;border:none;cursor:pointer;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0;transition:0.2s;flex-shrink:0;position:relative;">
+            <svg id="themeIconMoon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#5f6b7a;position:absolute;opacity:1;transform:rotate(0deg);">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            <svg id="themeIconSun" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#e8edf5;position:absolute;opacity:0;transform:rotate(180deg);">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+        </button>
+    </div>
+    <div style="margin-bottom:12px;padding:0 4px;">
+        <div class="mode-tabs" id="modeTabs" style="display:flex;gap:3px;background:#e9edf4;border-radius:30px;padding:3px;position:relative;width:100%;touch-action:none;cursor:pointer;user-select:none;">
+            <div class="mode-slider" id="modeSlider" style="position:absolute;top:3px;left:3px;height:calc(100% - 6px);background:#ffffff;border-radius:30px;box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:left 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);z-index:1;pointer-events:none;"></div>
+            <button class="mode-tab active" data-mode="train" style="flex:1;border:none;background:transparent;padding:6px 12px;border-radius:30px;font-size:13px;font-weight:500;color:#5f6b7a;cursor:pointer;transition:0.2s;white-space:nowrap;position:relative;z-index:2;text-align:center;">车次</button>
+            <button class="mode-tab" data-mode="station" style="flex:1;border:none;background:transparent;padding:6px 12px;border-radius:30px;font-size:13px;font-weight:500;color:#5f6b7a;cursor:pointer;transition:0.2s;white-space:nowrap;position:relative;z-index:2;text-align:center;">车站</button>
+            <button class="mode-tab" data-mode="sts" style="flex:1;border:none;background:transparent;padding:6px 12px;border-radius:30px;font-size:13px;font-weight:500;color:#5f6b7a;cursor:pointer;transition:0.2s;white-space:nowrap;position:relative;z-index:2;text-align:center;">站到站</button>
+            <button class="mode-tab" data-mode="screen" style="flex:1;border:none;background:transparent;padding:6px 12px;border-radius:30px;font-size:13px;font-weight:500;color:#5f6b7a;cursor:pointer;transition:0.2s;white-space:nowrap;position:relative;z-index:2;text-align:center;">大屏</button>
+        </div>
     </div>
     <div class="search-box" id="searchArea"></div>
     <div id="results"><div class="empty-state"><i class="bi bi-train-front"></i><p>输入车次或车站开始查询</p></div></div>
@@ -1024,7 +1159,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
             </div>
-            <div style="font-size:14px;font-weight:600;color:#1a2332;padding:4px 4px 8px 4px;">
+            <div style="font-size:14px;font-weight:600;padding:4px 4px 8px 4px;" class="station-train-count-title">
                 经过车次 (${trains.length})
                 <span style="font-size:12px;font-weight:400;color:#5f6b7a;">按发车时间排序</span>
             </div>
@@ -1165,9 +1300,29 @@ document.addEventListener('DOMContentLoaded', function() {
     renderSearchForm('train');
 });
 document.getElementById('themeToggle').addEventListener('click', function() {
+    const moon = document.getElementById('themeIconMoon');
+    const sun = document.getElementById('themeIconSun');
+    const isDark = document.body.classList.contains('dark-mode');
+    
+    if (isDark) {
+        // 深色→亮色：月亮转回来
+        moon.style.transform = 'rotate(0deg)';
+        moon.style.opacity = '1';
+        sun.style.transform = 'rotate(180deg)';
+        sun.style.opacity = '0';
+        document.getElementById('themeToggle').style.background = '#e9edf4';
+    } else {
+        // 亮色→深色：月亮转半圈变成太阳
+        moon.style.transform = 'rotate(180deg)';
+        moon.style.opacity = '0';
+        sun.style.transform = 'rotate(0deg)';
+        sun.style.opacity = '1';
+        document.getElementById('themeToggle').style.background = '#3a4458';
+    }
+    
     document.body.classList.toggle('dark-mode');
-    this.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌓';
 });
+
 function toggleScreenKindDropdown() {
     const dropdown = document.getElementById('screenKindDropdown');
     const arrow = document.getElementById('screenKindArrow');
@@ -1177,15 +1332,15 @@ function toggleScreenKindDropdown() {
     } else {
         dropdown.style.display = 'block';
         arrow.style.transform = 'rotate(180deg)';
-        // 展开时高亮当前选中项
         const currentValue = document.getElementById('screenKind').value;
+        const isDark = document.body.classList.contains('dark-mode');
         document.querySelectorAll('.custom-select-option').forEach(function(opt) {
             if (opt.dataset.value === currentValue) {
-                opt.style.background = document.body.classList.contains('dark-mode') ? '#2a3a5a' : '#eef3fc';
-                opt.style.color = document.body.classList.contains('dark-mode') ? '#7eb8ff' : '#1a73e8';
+                opt.style.background = isDark ? '#2a3a5a' : '#eef3fc';
+                opt.style.color = isDark ? '#7eb8ff' : '#1a73e8';
             } else {
-                opt.style.background = '';
-                opt.style.color = '';
+                opt.style.background = isDark ? '#1a1f2b' : '#fff';
+                opt.style.color = isDark ? '#e8edf5' : '#1a2332';
             }
         });
     }
