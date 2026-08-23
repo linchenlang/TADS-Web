@@ -169,6 +169,159 @@
         .modal-fullscreen .modal-body{padding:0}
         .modal-fullscreen .modal-header{border:0;padding:8px}
         .modal-fullscreen .btn-close-white{filter:brightness(0) invert(1)}
+        body.dark-mode{background:#1a1f2b;color:#e8edf5}
+        body.dark-mode .card{background:#262d3d;border-color:#3a4458}
+        body.dark-mode .search-box{background:#262d3d}
+        body.dark-mode .mode-tab{color:#aab4c8}
+        body.dark-mode .mode-tab.active{background:#3a4458;color:#7eb8ff}
+        body.dark-mode .mode-tab{background:transparent}
+        body.dark-mode .btn-query{background:#2b6fc4}
+        body.dark-mode .train-info-card .train-number{color:#7eb8ff}
+        body.dark-mode .train-feature-tag{background:#2a3a5a;color:#7eb8ff}
+        body.dark-mode .param-card{background:#1f2636;border-left-color:#2b6fc4}
+        body.dark-mode .exit-card{background:#1f2636;border-left-color:#2b6fc4}
+        body.dark-mode .timetable-table .even{background:#1f2636}
+        body.dark-mode .timetable-table td{border-bottom-color:#2a3245}
+        body.dark-mode .timetable-table th{border-bottom-color:#3a4458}
+        body.dark-mode .footer{border-top-color:#2a3245}
+        body.dark-mode .empty-state i{opacity:0.2}
+        body.dark-mode .train-list-item{border-bottom-color:#2a3245}
+        body.dark-mode .train-list-item:active{background:#1f2636}
+        body.dark-mode .station-select-box{background:#262d3d}
+        body.dark-mode .station-select-box .item{border-bottom-color:#2a3245}
+        body.dark-mode .station-select-box .item .name{color:#e8edf5}
+        body.dark-mode .station-select-box input{background:#1a1f2b;border-color:#3a4458;color:#e8edf5}
+        body.dark-mode .station-select-box input:focus{border-color:#2b6fc4}
+        body.dark-mode .alert-danger{background:#3d1f2a;color:#f5b8c4;border-color:#5a2a3a}
+        body.dark-mode .alert-info{background:#1a2a3f;color:#8bc9e0;border-color:#2a4a5a}
+        body.dark-mode .screen-header{background:#1a1f2b;color:#aab4c8}
+        body.dark-mode .screen-item{border-bottom-color:#2a3245}
+        body.dark-mode .screen-item:active{background:#1f2636}
+        body.dark-mode .coach-item{background:#1f2636;border-color:#3a4458}
+        body.dark-mode .coach-item .name{background:#1a1f2b;border-top-color:#3a4458}
+        body.dark-mode .status-ontime{background:#1a3a2a;color:#8bdaa8}
+        body.dark-mode .status-late{background:#3d1f2a;color:#f5b8c4}
+        body.dark-mode .status-stopped{background:#3d3a1a;color:#e8d88b}
+        body.dark-mode .status-departed{background:#1a2a4a;color:#8bb8e8}
+        body.dark-mode .status-arrived{background:#1a3a3a;color:#8bcdd8}
+        body.dark-mode .status-waiting{background:#1a2a4a;color:#8bb8e8}
+        body.dark-mode .status-checking{background:#3d3a1a;color:#e8d88b}
+        body.dark-mode .status-other{background:#2a2a3a;color:#b0b8c8}
+        body.dark-mode .delay-on-time{background:#1a3a2a;color:#8bdaa8}
+        body.dark-mode .delay-late{background:#3d1f2a;color:#f5b8c4}
+        body.dark-mode .delay-early{background:#1a2a4a;color:#8bb8e8}
+        body.dark-mode .delay-unknown{background:#2a2a3a;color:#b0b8c8}
+        body.dark-mode .search-box input,
+        body.dark-mode .search-box select {
+            background:#fff !important;
+            border-color:#dce1ea !important;
+            color:#1a2332 !important;
+        }
+        body.dark-mode .search-box input:focus,
+        body.dark-mode .search-box select:focus {
+            border-color:#1a73e8 !important;
+            box-shadow:0 0 0 3px rgba(26,115,232,0.1) !important;
+        }
+        /* 让所有控件在深色模式下变深色 */
+        body.dark-mode .search-box input,
+        body.dark-mode .search-box select,
+        body.dark-mode .station-select-box input,
+        body.dark-mode .station-select-box .item {
+            background:#1a1f2b !important;
+            border-color:#3a4458 !important;
+            color:#e8edf5 !important;
+        }
+        body.dark-mode .search-box input:focus,
+        body.dark-mode .search-box select:focus,
+        body.dark-mode .station-select-box input:focus {
+            border-color:#2b6fc4 !important;
+            box-shadow:0 0 0 3px rgba(43,111,196,0.2) !important;
+        }
+        body.dark-mode .search-box label {
+            color:#aab4c8 !important;
+        }
+        body.dark-mode .mode-tabs {
+            background:#2a3245 !important;
+        }
+        body.dark-mode .mode-tab {
+            color:#aab4c8 !important;
+        }
+        body.dark-mode .mode-tab.active {
+            background:#3a4458 !important;
+            color:#7eb8ff !important;
+            box-shadow:0 2px 8px rgba(0,0,0,0.2) !important;
+        }
+        body.dark-mode #themeToggle {
+            background:#2a3245 !important;
+            color:#e8edf5 !important;
+            border:none !important;
+        }
+        body.dark-mode #themeToggle:hover {
+            background:#3a4458 !important;
+        }
+        body.dark-mode .station-select-box {
+            background:#262d3d !important;
+        }
+        body.dark-mode .station-select-box .header span {
+            color:#e8edf5 !important;
+        }
+        body.dark-mode .station-select-box .close-btn {
+            color:#aab4c8 !important;
+        }
+        body.dark-mode .station-select-overlay {
+            background:rgba(0,0,0,0.7) !important;
+        }
+        body.dark-mode .station-select-box .list .item {
+            border-bottom-color:#2a3245 !important;
+        }
+        body.dark-mode .station-select-box .list .item .name {
+            color:#e8edf5 !important;
+        }
+        body.dark-mode .station-select-box .list .empty {
+            color:#8a96a8 !important;
+        }
+        body.dark-mode .station-select-box input {
+            background:#1a1f2b !important;
+            border-color:#3a4458 !important;
+            color:#e8edf5 !important;
+        }
+        body.dark-mode .station-select-box input:focus {
+            border-color:#2b6fc4 !important;
+        }
+        body.dark-mode .station-select-box .list .item:active {
+            background:#1a1f2b !important;
+        }
+        body.dark-mode select option {
+            background:#1a1f2b !important;
+            color:#e8edf5 !important;
+        }
+        body.dark-mode .custom-select-trigger {
+            background:#1a1f2b !important;
+            border-color:#3a4458 !important;
+            color:#e8edf5 !important;
+        }
+        body.dark-mode .custom-select-trigger span {
+            color:#e8edf5 !important;
+        }
+        body.dark-mode .custom-select-dropdown {
+            background:#1a1f2b !important;
+            border-color:#3a4458 !important;
+        }
+        body.dark-mode .custom-select-option {
+            color:#e8edf5 !important;
+            border-top-color:#2a3245 !important;
+        }
+        body.dark-mode .custom-select-option:hover {
+            background:#2a3245 !important;
+        }
+        body.dark-mode .custom-select-option.selected {
+            background:#2a3a5a !important;
+            color:#7eb8ff !important;
+        }
+        .custom-select-option.selected {
+            background:#eef3fc !important;
+            color:#1a73e8 !important;
+        }
     </style>
 </head>
 <body>
@@ -177,12 +330,15 @@
         <div class="logo">
             <img src="image/logo.ico" alt="TADS Logo" style="height:20px;width:20px;margin-right:6px;">
             <span>TADS</span><small></small></div>
-        <div class="mode-tabs">
-            <button class="mode-tab active" data-mode="train">车次</button>
-            <button class="mode-tab" data-mode="station">车站</button>
-            <button class="mode-tab" data-mode="sts">站到站</button>
-            <button class="mode-tab" data-mode="screen">大屏</button>
-        </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <div class="mode-tabs">
+                    <button class="mode-tab active" data-mode="train">车次</button>
+                    <button class="mode-tab" data-mode="station">车站</button>
+                    <button class="mode-tab" data-mode="sts">站到站</button>
+                    <button class="mode-tab" data-mode="screen">大屏</button>
+                </div>
+                <button id="themeToggle" style="background:#e9edf4;border:none;border-radius:30px;font-size:18px;padding:5px 10px;cursor:pointer;transition:0.2s;flex-shrink:0;">🌓</button>
+            </div>
     </div>
     <div class="search-box" id="searchArea"></div>
     <div id="results"><div class="empty-state"><i class="bi bi-train-front"></i><p>输入车次或车站开始查询</p></div></div>
@@ -375,7 +531,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <button class="btn-query" id="searchBtn"><i class="bi bi-search me-1"></i>查询</button>
             `;
         } else if (mode === 'screen') {
-            html = `<div class="field-group"><label>车站名称</label><input type="text" id="screenInput" placeholder="点击选择车站" class="station-input-clickable" readonly onclick="openStationSelect('screenInput')"></div><div class="field-group"><label>方向</label><select id="screenKind"><option value="departure">出发</option><option value="arrival">到达</option></select></div><button class="btn-query" id="searchBtn"><i class="bi bi-search me-1"></i>查询</button>`;
+            html = `<div class="field-group"><label>车站名称</label><input type="text" id="screenInput" placeholder="点击选择车站" class="station-input-clickable" readonly onclick="openStationSelect('screenInput')"></div><div class="field-group"><label>方向</label><div class="custom-select-wrapper" style="position:relative;"><div class="custom-select-trigger" id="screenKindTrigger" style="width:100%;padding:10px 14px;border:1.5px solid #dce1ea;border-radius:10px;font-size:15px;background:#f8faff;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:0.2s;" onclick="toggleScreenKindDropdown()"><span id="screenKindText">出发</span><span style="font-size:12px;color:#8a96a8;transition:0.2s;" id="screenKindArrow">▼</span></div><div class="custom-select-dropdown" id="screenKindDropdown" style="display:none;position:absolute;top:calc(100% + 4px);left:0;right:0;background:#fff;border:1.5px solid #dce1ea;border-radius:10px;overflow:hidden;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,0.1);"><div class="custom-select-option" data-value="departure" style="padding:10px 14px;cursor:pointer;transition:0.15s;" onclick="selectScreenKind('departure','出发')">出发</div><div class="custom-select-option" data-value="arrival" style="padding:10px 14px;cursor:pointer;border-top:1px solid #f0f4f9;transition:0.15s;" onclick="selectScreenKind('arrival','到达')">到达</div></div></div><input type="hidden" id="screenKind" value="departure"></div><button class="btn-query" id="searchBtn"><i class="bi bi-search me-1"></i>查询</button>`;
         }
         searchArea.innerHTML = html;
         const searchBtn = document.getElementById('searchBtn');
@@ -1007,6 +1163,59 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     renderSearchForm('train');
+});
+document.getElementById('themeToggle').addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    this.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌓';
+});
+function toggleScreenKindDropdown() {
+    const dropdown = document.getElementById('screenKindDropdown');
+    const arrow = document.getElementById('screenKindArrow');
+    if (dropdown.style.display === 'block') {
+        dropdown.style.display = 'none';
+        arrow.style.transform = 'rotate(0deg)';
+    } else {
+        dropdown.style.display = 'block';
+        arrow.style.transform = 'rotate(180deg)';
+        // 展开时高亮当前选中项
+        const currentValue = document.getElementById('screenKind').value;
+        document.querySelectorAll('.custom-select-option').forEach(function(opt) {
+            if (opt.dataset.value === currentValue) {
+                opt.style.background = document.body.classList.contains('dark-mode') ? '#2a3a5a' : '#eef3fc';
+                opt.style.color = document.body.classList.contains('dark-mode') ? '#7eb8ff' : '#1a73e8';
+            } else {
+                opt.style.background = '';
+                opt.style.color = '';
+            }
+        });
+    }
+}
+
+function selectScreenKind(value, text) {
+    document.getElementById('screenKind').value = value;
+    document.getElementById('screenKindText').textContent = text;
+    document.getElementById('screenKindDropdown').style.display = 'none';
+    document.getElementById('screenKindArrow').style.transform = 'rotate(0deg)';
+    document.querySelectorAll('.custom-select-option').forEach(function(opt) {
+        if (opt.dataset.value === value) {
+            opt.style.background = '#eef3fc';
+            opt.style.color = '#1a73e8';
+        } else {
+            opt.style.background = '';
+            opt.style.color = '';
+        }
+    });
+}
+
+// 点击其他地方关闭下拉
+document.addEventListener('click', function(e) {
+    const wrapper = document.querySelector('.custom-select-wrapper');
+    if (wrapper && !wrapper.contains(e.target)) {
+        const dropdown = document.getElementById('screenKindDropdown');
+        const arrow = document.getElementById('screenKindArrow');
+        if (dropdown) dropdown.style.display = 'none';
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
+    }
 });
 </script>
 </body>
