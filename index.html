@@ -173,20 +173,19 @@
         body.dark-mode .card{background:#262d3d;border-color:#3a4458}
         body.dark-mode .search-box{background:#262d3d}
         body.dark-mode .search-box input:-webkit-autofill{background:#1a1f2b !important}
-        body.dark-mode .mode-tab{color:#aab4c8}
+        body.dark-mode .mode-tab{color:#aab4c8;background:transparent !important}
         body.dark-mode .mode-tab.active{background:#3a4458 !important;color:#7eb8ff !important;box-shadow:0 2px 8px rgba(0,0,0,0.2) !important}
-        body.dark-mode .mode-tab{background:transparent}
         body.dark-mode .btn-query{background:#2b6fc4}
         body.dark-mode .train-info-card .train-number{color:#7eb8ff}
         body.dark-mode .train-feature-tag{background:#2a3a5a;color:#7eb8ff}
         body.dark-mode .param-card{background:#1f2636;border-left-color:#2b6fc4}
         body.dark-mode .exit-card{background:#1f2636;border-left-color:#2b6fc4}
         body.dark-mode .timetable-table .even{background:#1f2636}
-        body.dark-mode .timetable-table td{border-bottom-color:#2a3245}
-        body.dark-mode .timetable-table th{border-bottom-color:#3a4458}
-        body.dark-mode .footer{border-top-color:#2a3245}
+        body.dark-mode .timetable-table td{border-bottom-color:#2a3245;color:#e8edf5}
+        body.dark-mode .timetable-table th{border-bottom-color:#3a4458;color:#aab4c8}
+        body.dark-mode .footer{border-top-color:#2a3245;color:#aab4c8}
         body.dark-mode .empty-state i{opacity:0.2}
-        body.dark-mode .train-list-item{border-bottom-color:#2a3245}
+        body.dark-mode .train-list-item{border-bottom-color:#2a3245;color:#e8edf5}
         body.dark-mode .train-list-item:active{background:#1f2636}
         body.dark-mode .station-select-box{background:#262d3d}
         body.dark-mode .station-select-box .item{border-bottom-color:#2a3245}
@@ -196,10 +195,10 @@
         body.dark-mode .alert-danger{background:#3d1f2a;color:#f5b8c4;border-color:#5a2a3a}
         body.dark-mode .alert-info{background:#1a2a3f;color:#8bc9e0;border-color:#2a4a5a}
         body.dark-mode .screen-header{background:#1a1f2b;color:#aab4c8}
-        body.dark-mode .screen-item{border-bottom-color:#2a3245}
+        body.dark-mode .screen-item{border-bottom-color:#2a3245;color:#e8edf5}
         body.dark-mode .screen-item:active{background:#1f2636}
         body.dark-mode .coach-item{background:#1f2636;border-color:#3a4458}
-        body.dark-mode .coach-item .name{background:#1a1f2b;border-top-color:#3a4458}
+        body.dark-mode .coach-item .name{background:#1a1f2b;border-top-color:#3a4458;color:#e8edf5}
         body.dark-mode .status-ontime{background:#1a3a2a;color:#8bdaa8}
         body.dark-mode .status-late{background:#3d1f2a;color:#f5b8c4}
         body.dark-mode .status-stopped{background:#3d3a1a;color:#e8d88b}
@@ -227,11 +226,45 @@
         body.dark-mode .screen-item span:not(.train):not(.port),
         body.dark-mode .timetable-table td,
         body.dark-mode .coach-item .name,
-        body.dark-mode .train-feature-tag,
-        body.dark-mode #themeToggle{background:#3a4458 !important;color:#e8edf5 !important}
+        body.dark-mode .train-feature-tag{color:#e8edf5 !important}
+        body.dark-mode #themeToggle{background:transparent !important;color:#e8edf5 !important;border:none !important}
+        body.dark-mode .custom-select-option{color:#e8edf5 !important;background:transparent !important}
+        body.dark-mode .train-info-card .info-grid .label,
+        body.dark-mode .exit-card .exit-grid .label,
+        body.dark-mode .param-card .param-grid .label,
+        body.dark-mode .timetable-table th,
+        body.dark-mode .screen-header,
+        body.dark-mode .screen-item .port,
+        body.dark-mode .search-box label,
+        body.dark-mode .footer,
+        body.dark-mode .empty-state,
+        body.dark-mode .loading{color:#aab4c8 !important}
+        body.dark-mode .train-list-item .number,
+        body.dark-mode .screen-item .train{color:#7eb8ff !important}
+        body.dark-mode .train-list-item .type{background:#2a3a5a !important;color:#7eb8ff !important}
+        body.dark-mode .timetable-table .col-day{color:#f5a623 !important}
+        body.dark-mode .timetable-table .col-train{color:#7eb8ff !important}
+        body.dark-mode .train-info-card .train-type{background:#2a3a5a !important;color:#7eb8ff !important}
+        body.dark-mode .train-info-card .train-number{color:#7eb8ff !important}
+        body.dark-mode .station-select-box .list .item{border-bottom-color:#2a3245 !important}
+        body.dark-mode .station-select-box .list .empty{color:#8a96a8 !important}
+        body.dark-mode .screen-item{border-bottom-color:#2a3245 !important}
+        body.dark-mode .train-list-item{border-bottom-color:#2a3245 !important}
+        body.dark-mode .custom-select-option:hover{background:#2a3245 !important}
+        body.dark-mode .search-box input,
+        body.dark-mode .search-box select{background:#1a1f2b !important;border-color:#3a4458 !important;color:#e8edf5 !important}
+        body.dark-mode .search-box input:focus,
+        body.dark-mode .search-box select:focus{border-color:#2b6fc4 !important;box-shadow:0 0 0 3px rgba(43,111,196,0.2) !important}
+        body.dark-mode .station-train-count-title{color:#e8edf5 !important}
+        body.dark-mode .mode-tabs{background:#2a3245 !important}
+        body.dark-mode .search-box input:-webkit-autofill,
+        body.dark-mode .search-box input:-webkit-autofill:hover,
+        body.dark-mode .search-box input:-webkit-autofill:focus,
+        body.dark-mode .search-box input:-webkit-autofill:active{-webkit-box-shadow:0 0 0 1000px #1a1f2b inset !important;-webkit-text-fill-color:#e8edf5 !important;background:#1a1f2b !important;border-color:#3a4458 !important}
         body.dark-mode #themeToggle{color:#e8edf5 !important}
         body.dark-mode .custom-select-option {
             color:#e8edf5 !important;
+            background: transparent !important; /* 修复：移除该类的默认灰色背景 */
         }
         body.dark-mode .train-info-card .info-grid .label,
         body.dark-mode .exit-card .exit-grid .label,
@@ -417,7 +450,6 @@
             background:#eef3fc !important;
             color:#1a73e8 !important;
         }
-        body.dark-mode .mode-tabs{background:#2a3245 !important}
         body.dark-mode #themeToggle{color:#e8edf5 !important}
         #themeToggle{background:#e9edf4 !important}
         /* 隐藏所有滚动条 */
