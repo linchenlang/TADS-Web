@@ -165,10 +165,6 @@
             .coach-item img{height:240px}
         }
 
-        .modal-fullscreen .modal-content{background:#000!important}
-        .modal-fullscreen .modal-body{padding:0}
-        .modal-fullscreen .modal-header{border:0;padding:8px}
-        .modal-fullscreen .btn-close-white{filter:brightness(0) invert(1)}
         body.dark-mode{background:#1a1f2b;color:#e8edf5}
         body.dark-mode .card{background:#262d3d;border-color:#3a4458}
         body.dark-mode .search-box{background:#262d3d}
@@ -257,11 +253,7 @@
         body.dark-mode .custom-select-option{color:#e8edf5 !important;border-top-color:#2a3245 !important}
         body.dark-mode .custom-select-option:hover{background:#2a3245 !important}
         body.dark-mode .custom-select-option.selected{background:#2a3a5a !important;color:#7eb8ff !important}
-        body.dark-mode .search-box input:-webkit-autofill,body.dark-mode .search-box input:-webkit-autofill:hover,body.dark-mode .search-box input:-webkit-autofill:focus,body.dark-mode .search-box input:-webkit-autofill:active{-webkit-box-shadow:0 0 0 1000px #1a1f2b inset !important;-webkit-text-fill-color:#e8edf5 !important;background-color:#1a1f2b !important;background:#1a1f2b !important;border-color:#3a4458 !important}
-        body.dark-mode .search-box input{background:#1a1f2b !important;color:#e8edf5 !important;border-color:#3a4458 !important}
-        body.dark-mode .search-box input:focus{border-color:#2b6fc4 !important;box-shadow:0 0 0 3px rgba(43,111,196,0.2) !important;background:#1a1f2b !important;color:#e8edf5 !important}
         .custom-select-option.selected{background:#eef3fc !important;color:#1a73e8 !important}
-        body.dark-mode #themeToggle{color:#e8edf5 !important}
         #themeToggle{background:#e9edf4 !important}
         .custom-select-dropdown{max-height:0;opacity:0;transform:scaleY(0.8);transform-origin:top center;pointer-events:none;transition:max-height 0.25s ease,opacity 0.25s ease,transform 0.25s ease;overflow:hidden}
         .custom-select-dropdown.open{max-height:200px;opacity:1;transform:scaleY(1);pointer-events:auto}
@@ -274,28 +266,24 @@
         #themeToggle{position:relative}
         .search-container{display:none}
         .search-container.active{display:block}
-        #results {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 100%;
-        }
-        .result-container {
-            display: none;
-            flex-direction: column;
-            gap: 10px;
-            width: 100%;
-        }
-        .result-container.active {
-            display: flex;
-        }
-        .result-container .card {
-            margin-bottom: 0;
-            width: 100%;
-        }
-        .result-container .card + .card {
-            margin-top: 10px;
-        }
+        #results {display:flex;flex-direction:column;gap:10px;width:100%;}
+        .result-container {display:none;flex-direction:column;gap:10px;width:100%;}
+        .result-container.active {display:flex;}
+        .result-container .card {margin-bottom:0;width:100%;}
+        .result-container .card + .card {margin-top:10px;}
+
+        /* ===== 图片查看器（自定义弹窗） ===== */
+        .image-viewer-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:2000;justify-content:center;align-items:center;padding:20px;cursor:zoom-out;}
+        .image-viewer-overlay.show{display:flex;}
+        .image-viewer-overlay img{max-width:100%;max-height:100%;object-fit:contain;cursor:default;border-radius:4px;box-shadow:0 8px 40px rgba(0,0,0,0.5);}
+        .image-viewer-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.15);color:#fff;border:none;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:0.2s;padding:0;}
+        .image-viewer-close:hover{background:rgba(255,255,255,0.3);}
+
+        /* ===== 赞助按钮 ===== */
+        .btn-sponsor{background:linear-gradient(135deg,#1a73e8,#4285f4);color:#fff;border:none;border-radius:30px;padding:12px 32px;font-size:15px;font-weight:600;cursor:pointer;transition:0.2s;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 14px rgba(26,115,232,0.3);}
+        .btn-sponsor:active{transform:scale(0.96);}
+        .btn-sponsor:hover{box-shadow:0 6px 20px rgba(26,115,232,0.4);}
+        body.dark-mode .btn-sponsor{background:linear-gradient(135deg,#2b6fc4,#3a7fd4);box-shadow:0 4px 14px rgba(43,111,196,0.3);}
 
         /* ===== 五个标签后更紧凑 ===== */
         .mode-tabs .mode-tab{padding:6px 5px !important;font-size:12px !important;}
@@ -309,8 +297,6 @@
         .about-row:last-child{border-bottom:none;}
         .about-row .k{color:#8a96a8;flex-shrink:0;}
         .about-row .v{color:#1a2332;font-weight:500;text-align:right;word-break:break-word;}
-        .about-qr{width:220px;max-width:76%;height:auto;border-radius:12px;border:1px solid #eef2f7;background:#fff;padding:6px;cursor:pointer;transition:0.2s;}
-        .about-qr:active{transform:scale(0.97);}
         .about-feature{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid #f0f4f9;}
         .about-feature:last-child{border-bottom:none;}
         .about-feature i{font-size:17px;color:#1a73e8;margin-top:1px;flex-shrink:0;}
@@ -328,7 +314,6 @@
         body.dark-mode .about-tagline{color:#aab4c8 !important;}
         body.dark-mode .about-row,
         body.dark-mode .about-feature{border-bottom-color:#2a3245;}
-        body.dark-mode .about-qr{border-color:#3a4458;}
         body.dark-mode .about-section-title i,
         body.dark-mode .about-feature i,
         body.dark-mode .about-sub i,
@@ -394,13 +379,10 @@
     </div>
 </div>
 
-<div class="modal fade" id="imageModal" tabindex="-1">
-    <div class="modal-dialog modal-fullscreen"><div class="modal-content bg-dark">
-        <div class="modal-header border-0"><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div>
-        <div class="modal-body d-flex align-items-center justify-content-center p-2">
-            <img id="modalImage" src="" alt="图片" class="img-fluid" style="max-height:90vh;object-fit:contain;">
-        </div>
-    </div></div>
+<!-- 图片查看器 -->
+<div id="imageViewer" class="image-viewer-overlay" onclick="closeImageViewer(event)">
+    <button class="image-viewer-close" onclick="closeImageViewer()">&times;</button>
+    <img id="imageViewerImg" src="" alt="预览" onclick="event.stopPropagation()">
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -591,8 +573,11 @@ const ABOUT_HTML = `
                 <i class="bi bi-journal-text me-1" style="color:#1a73e8;"></i>文档整理与使用体验打磨
             </div>
             <div style="text-align:center;margin-top:16px;">
-                <img class="about-qr" src="image/shoukuanma.jpeg" alt="收款码" onclick="window.viewImage('image/shoukuanma.jpeg')">
-                <div style="font-size:12px;color:#8a96a8;margin-top:8px;">扫码支持作者 · 金额随意，心意最重要</div>
+                <button class="btn-sponsor" onclick="window.viewImage('image/shoukuanma.jpeg')">
+                    <i class="bi bi-qr-code-scan"></i>
+                    <span>查看收款码</span>
+                </button>
+                <div style="font-size:12px;color:#8a96a8;margin-top:8px;">金额随意，心意最重要</div>
             </div>
         </div>
     </div>
@@ -610,58 +595,49 @@ const ABOUT_HTML = `
     </div>
 `;
 
+// ====== 图片查看器（自定义，无 Bootstrap Modal） ======
+window.viewImage = function(url) {
+    const viewer = document.getElementById('imageViewer');
+    const img = document.getElementById('imageViewerImg');
+    if (!viewer || !img) return;
+    img.src = url;
+    viewer.classList.add('show');
+    document.body.style.overflow = 'hidden';
+};
+
+window.closeImageViewer = function(e) {
+    // 点击关闭按钮时 e 为 undefined；点击背景时 e.target 为 overlay 本身
+    // 点击图片时被 stopPropagation 拦截，不会执行到这里
+    if (e && e.target && e.target.id !== 'imageViewer') return;
+    const viewer = document.getElementById('imageViewer');
+    if (viewer) {
+        viewer.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+};
+
 // ====== 主控 ======
 document.addEventListener('DOMContentLoaded', function() {
     const modeBtns = document.querySelectorAll('.mode-tab');
     const searchArea = document.getElementById('searchArea');
     const resultsDiv = document.getElementById('results');
     let currentMode = 'train';
-    let imageModal = null;
-    if (document.getElementById('imageModal')) {
-        imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-    }
-
-    // 全局图片查看器（关于页面的收款码也要用）
-    window.viewImage = function(url) {
-        const img = document.getElementById('modalImage');
-        if (img) { img.src = url; if (imageModal) imageModal.show(); }
-    };
 
     buildStationCache();
 
     // 存储每个模式是否已有结果
     const modeHasResult = {
-        train: false,
-        station: false,
-        sts: false,
-        screen: false,
-        about: false
+        train: false, station: false, sts: false, screen: false, about: false
     };
-    // 存储每个模式的结果是否为 sts 模式
     const modeStsClass = {
-        train: false,
-        station: false,
-        sts: false,
-        screen: false,
-        about: false
+        train: false, station: false, sts: false, screen: false, about: false
     };
-    // 存储每个模式的错误信息
     const modeError = {
-        train: null,
-        station: null,
-        sts: null,
-        screen: null,
-        about: null
+        train: null, station: null, sts: null, screen: null, about: null
     };
-    // 保存模式切换时的滚动位置
     const modeScrollPos = {
-        train: 0,
-        station: 0,
-        sts: 0,
-        screen: 0,
-        about: 0
+        train: 0, station: 0, sts: 0, screen: 0, about: 0
     };
-    // 存储每个模式的查询状态（输入框值等）
     const modeState = {
         train: { input: '' },
         station: { input: '' },
@@ -681,7 +657,6 @@ document.addEventListener('DOMContentLoaded', function() {
             currentMode = newMode;
 
             if (newMode === 'about') {
-                // 关于页：隐藏搜索框，直接渲染静态内容
                 searchArea.style.display = 'none';
                 renderAboutPage();
                 window.scrollTo(0, 0);
@@ -699,7 +674,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ===== 关于页面渲染 =====
     function renderAboutPage() {
         document.querySelectorAll('[id^="resultContainer_"]').forEach(el => {
             el.style.display = 'none';
@@ -724,7 +698,6 @@ document.addEventListener('DOMContentLoaded', function() {
         modeError.about = null;
     }
 
-    // 恢复模式状态
     function restoreModeState(mode) {
         const state = modeState[mode];
         if (!state) return;
@@ -757,7 +730,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 保存当前模式的状态
     function saveCurrentModeState() {
         const mode = currentMode;
         const state = modeState[mode];
@@ -793,9 +765,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (container && modeHasResult[mode]) {
             const emptyContainer = document.getElementById('emptyStateContainer');
-            if (emptyContainer) {
-                emptyContainer.style.display = 'none';
-            }
+            if (emptyContainer) emptyContainer.style.display = 'none';
             container.style.display = 'block';
             container.classList.add('active');
             if (mode === 'sts' && modeStsClass[mode]) {
@@ -805,9 +775,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } else if (modeError[mode]) {
             const emptyContainer = document.getElementById('emptyStateContainer');
-            if (emptyContainer) {
-                emptyContainer.style.display = 'none';
-            }
+            if (emptyContainer) emptyContainer.style.display = 'none';
             let errContainer = document.getElementById(`resultContainer_${mode}`);
             if (!errContainer) {
                 errContainer = document.createElement('div');
@@ -993,28 +961,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target === this) closeStationSelect();
     });
 
-    // ====== 核心函数：创建结果容器 ======
-    function getResultContainer(mode) {
-        let container = document.getElementById(`resultContainer_${mode}`);
-        if (!container) {
-            container = document.createElement('div');
-            container.id = `resultContainer_${mode}`;
-            container.className = 'result-container';
-            container.style.display = 'none';
-            resultsDiv.appendChild(container);
-        }
-        return container;
-    }
-
     function showResult(mode, html, isStsMode) {
         document.querySelectorAll('[id^="resultContainer_"]').forEach(el => {
             el.style.display = 'none';
             el.classList.remove('active');
         });
         const emptyContainer = document.getElementById('emptyStateContainer');
-        if (emptyContainer) {
-            emptyContainer.style.display = 'none';
-        }
+        if (emptyContainer) emptyContainer.style.display = 'none';
 
         let container = document.getElementById(`resultContainer_${mode}`);
         if (!container) {
@@ -1046,9 +999,7 @@ document.addEventListener('DOMContentLoaded', function() {
             el.classList.remove('active');
         });
         const emptyContainer = document.getElementById('emptyStateContainer');
-        if (emptyContainer) {
-            emptyContainer.style.display = 'none';
-        }
+        if (emptyContainer) emptyContainer.style.display = 'none';
 
         let container = document.getElementById(`resultContainer_${mode}`);
         if (!container) {
@@ -1073,9 +1024,7 @@ document.addEventListener('DOMContentLoaded', function() {
             el.classList.remove('active');
         });
         const emptyContainer = document.getElementById('emptyStateContainer');
-        if (emptyContainer) {
-            emptyContainer.style.display = 'none';
-        }
+        if (emptyContainer) emptyContainer.style.display = 'none';
 
         let container = document.getElementById(`resultContainer_${mode}`);
         if (!container) {
@@ -1155,7 +1104,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return Promise.all(ret);
     }
 
-    // ====== 核心：判断车站是否已过 ======
     function isStationPassed(arriveTime, departTime, dayOffset) {
         const now = new Date();
         const nowTime = now.getTime();
@@ -1181,7 +1129,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return nowTime >= stationTime + 60000;
     }
 
-    // ====== 车次查询 ======
     async function searchTrain(trainNum, mode) {
         showLoading(mode);
         const mainData = await API.getTrainMain(trainNum);
@@ -1494,7 +1441,6 @@ document.addEventListener('DOMContentLoaded', function() {
         container.innerHTML = html || '<div style="text-align:center;padding:12px;color:#8a96a8;font-size:13px;">暂无站点信息</div>';
     }
 
-    // ====== 车站查询 ======
     async function searchStation(stationName, mode) {
         showLoading(mode);
         const telecodeResp = await API.getTelecode(stationName);
@@ -1583,7 +1529,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    // ====== 站到站查询 ======
     async function searchSts(from, to, date, mode) {
         showLoading(mode);
         try {
@@ -1651,7 +1596,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // ====== 车站大屏 ======
     async function searchScreen(stationName, kind, mode) {
         showLoading(mode);
         const telecodeResp = await API.getTelecode(stationName);
@@ -1706,7 +1650,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    // ====== 初始化 ======
     let emptyContainer = document.createElement('div');
     emptyContainer.id = 'emptyStateContainer';
     emptyContainer.className = 'empty-state';
@@ -1715,7 +1658,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     renderSearchForm('train');
 
-    // ★ 事件委托 - 查询按钮
     document.addEventListener('click', function(e) {
         const btn = e.target.closest('#searchBtn');
         if (btn) {
@@ -1730,7 +1672,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ★ 事件委托 - 回车查询
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
             const input = e.target.closest('input:not([readonly])');
@@ -1771,6 +1712,17 @@ document.getElementById('themeToggle').addEventListener('click', function() {
         document.getElementById('themeToggle').style.background = '#3a4458';
     }
     document.body.classList.toggle('dark-mode');
+});
+
+// ====== ESC 键关闭图片查看器 ======
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const viewer = document.getElementById('imageViewer');
+        if (viewer && viewer.classList.contains('show')) {
+            viewer.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    }
 });
 
 function toggleScreenKindDropdown() {
